@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.MainFragment">
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="408dp"
+        android:layout_height="219dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/IntroText"
+        android:layout_width="411dp"
+        android:layout_height="78dp"
+        android:text="Please select your choices for your round of trivia"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Logo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RelativeLayout
+        android:id="@+id/AmountHolder"
+        android:layout_width="409dp"
+        android:layout_height="101dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IntroText"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/AmountText"
+            android:layout_width="112dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="4dp"
+            android:text="TextView" />
+
+        <Spinner
+            android:id="@+id/AmountItemHolder"
+            android:layout_width="291dp"
+            android:layout_height="90dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="1dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/CategoryHolder"
+        android:layout_width="409dp"
+        android:layout_height="101dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IntroText"
+        app:layout_constraintVertical_bias="0.303">
+
+        <TextView
+            android:id="@+id/CategoryText"
+            android:layout_width="112dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="4dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/CategoryItemHolder"
+            android:layout_width="293dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/DifficultyHolder"
+        android:layout_width="409dp"
+        android:layout_height="101dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IntroText"
+        app:layout_constraintVertical_bias="0.606">
+
+        <TextView
+            android:id="@+id/DifficultyText"
+            android:layout_width="112dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="4dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/DifficultyItemHolder"
+            android:layout_width="290dp"
+            android:layout_height="96dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="1dp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/StartGame"
+        android:layout_width="181dp"
+        android:layout_height="58dp"
+        android:text="Start trivia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DifficultyHolder" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
