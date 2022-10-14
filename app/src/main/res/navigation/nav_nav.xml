@@ -21,5 +21,17 @@
         <action
             android:id="@+id/action_gameFragment_to_mainFragment3"
             app:destination="@id/mainFragment3" />
+        <action
+            android:id="@+id/action_gameFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.trivia.views.ResultsFragment"
+        android:label="fragment_results"
+        tools:layout="@layout/fragment_results" >
+        <action
+            android:id="@+id/action_resultsFragment_to_mainFragment3"
+            app:destination="@id/mainFragment3" />
     </fragment>
 </navigation>

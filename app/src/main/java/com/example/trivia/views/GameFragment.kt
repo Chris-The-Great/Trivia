@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.trivia.Adaptar
 import com.example.trivia.R
@@ -33,6 +34,8 @@ class GameFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
 
+
+
     }
 
     override fun onCreateView(
@@ -56,6 +59,10 @@ class GameFragment : Fragment() {
                 is UIState.SUCCESS -> {
                     Toast.makeText(context, "Yes", Toast.LENGTH_LONG).show()
                     gAdaptar.StartGame(state.trivia)
+                    Log.d("Data", gAdaptar.itemCount.toString())
+                    if(gAdaptar.itemCount < MainFragment.qAmount.toInt()){
+                        Toast.makeText(context, "Not enough questions. Loaded what questions were available",Toast.LENGTH_LONG).show()
+                    }
                 }
                 is UIState.ERROR -> {
                     Toast.makeText(context, "Data Failed", Toast.LENGTH_LONG).show()
@@ -65,9 +72,16 @@ class GameFragment : Fragment() {
 
         }
 
+        binding.Submit.setOnClickListener {
+            findNavController().navigate(R.id.action_gameFragment_to_resultsFragment)
+        }
+
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+    fun onSupportNavigateUp() : Boolean{
+        return findNavController().navigateUp()
     }
 
 }

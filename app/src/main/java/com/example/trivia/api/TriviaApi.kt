@@ -11,8 +11,12 @@ interface TriviaApi {
 
     @GET(Search_Path)
     suspend fun getTrivia(
-        @Query("amount") qAmount: String
-    ): Response<TriviaData>
+        @Query("amount") qAmount: String,
+        @Query("category") qCategory: String,
+        @Query("difficulty") qDifficulty : String,
+        @Query("type") qType: String,
+
+        ): Response<TriviaData>
 
 
     //"https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"

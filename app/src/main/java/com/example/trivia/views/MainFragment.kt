@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.trivia.R
+import com.example.trivia.api.TriviaApi
 import com.example.trivia.api.UIState
 import com.example.trivia.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,9 +30,13 @@ class MainFragment : Fragment() {
     private val viewModel by lazy{
         ViewModelProvider(requireActivity())[TriviaViewModel::class.java]
     }
-
+    private var aBtn = 0
+    private var cBtn = 0
+    private var dBtn = 0
     companion object{
         var qAmount : String = ""
+        var qCategory : Int = 0
+        var qDifficulty : String =""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,9 +61,14 @@ class MainFragment : Fragment() {
         Questionsspinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                //Toast.makeText(requireContext(), Question[p2], Toast.LENGTH_LONG).show()
-                binding.AmountText.text = Question[p2]
-                qAmount = Question[p2]
+                if(p2 > 0) {
+                    qAmount = Question[p2]
+                    aBtn = p2
+                    binding.StartGame.isEnabled = true
+                }
+                else {
+                    binding.AmountText.text = "Select amount of questions"
+                }
             }
 
 
@@ -80,8 +90,13 @@ class MainFragment : Fragment() {
         Categoryspinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                //Toast.makeText(requireContext(), Category[p2], Toast.LENGTH_LONG).show()
-                binding.CategoryText.text = Category[p2]
+                if(p2 >0) {
+                    qCategory = p2 + 7
+                    cBtn = p2
+                }
+                else{
+                    binding.CategoryText.text = "Please pick a category "
+                }
 
             }
 
@@ -104,8 +119,13 @@ class MainFragment : Fragment() {
         Difficultyspinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                //Toast.makeText(requireContext(), Difficulty[p2], Toast.LENGTH_LONG).show()
-                binding.DifficultyText.text = Difficulty[p2]
+                if( p2 > 0){
+                    qDifficulty = Difficulty[p2]
+                    dBtn = p2
+                }
+                else {
+                    binding.DifficultyText.text = "Please choice Difficulty"
+                }
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -114,6 +134,8 @@ class MainFragment : Fragment() {
             }
 
         }
+
+        binding.StartGame.isEnabled = !(aBtn ==0 && cBtn == 0 && dBtn ==0)
 
         binding.StartGame.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment3_to_gameFragment)

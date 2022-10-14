@@ -20,7 +20,12 @@ class TriviaREImpl @Inject constructor(
 
         try {
             Log.d("Yes", MainFragment.qAmount)
-            val response = triviaApi.getTrivia(qAmount = MainFragment.qAmount)
+            val response = triviaApi.getTrivia(
+                qAmount = MainFragment.qAmount,
+                qType = "multiple",
+                qCategory = MainFragment.qCategory.toString(),
+                qDifficulty = MainFragment.qDifficulty
+            )
             if (response.isSuccessful){
                 response.body()?.let {
                     emit(UIState.SUCCESS(it.results.mapToAnswers()))

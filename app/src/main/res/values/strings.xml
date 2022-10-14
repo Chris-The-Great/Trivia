@@ -3,6 +3,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="amount_Array">
+        <item></item>
+        <item>Random</item>
         <item>10</item>
         <item>15</item>
         <item>20</item>
@@ -15,6 +17,8 @@
     </string-array>
 
     <string-array name="category_Array">
+        <item></item>
+        <item>Mixed</item>
         <item>General Knowledge</item>
         <item>Entertainment: Books</item>
         <item>Entertainment: Film</item>
@@ -23,6 +27,9 @@
         <item>Entertainment: Television</item>
         <item>Entertainment: Video Games</item>
         <item>Entertainment: Board Games</item>
+        <item>Science &amp; Nature </item>
+        <item>Science : Computers</item>
+        <item>Science : Mathematics</item>
         <item>Mythology</item>
         <item>Sports</item>
         <item>Geography</item>
@@ -31,12 +38,19 @@
         <item>Art</item>
         <item>Celebrities</item>
         <item>Animals</item>
+        <item>Vehicles</item>
+        <item>Entertainment : Comics</item>
+        <item>Science : Gadgets</item>
+        <item>Entertainment : Japanese Anime &amp; Manga</item>
+        <item>Entertainment : Cartoon &amp; Animations</item>
     </string-array>
 
     <string-array name="Difficulty_Array">
-        <item>Easy</item>
-        <item>Medium</item>
-        <item>Hard</item>
+        <item></item>
+        <item>Mixed</item>
+        <item>easy</item>
+        <item>medium</item>
+        <item>hard</item>
     </string-array>
 
 </resources>

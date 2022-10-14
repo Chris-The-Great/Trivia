@@ -8,6 +8,11 @@
     tools:context=".views.MainActivity"
 
     >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        tools:ignore="MissingConstraints" />
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
